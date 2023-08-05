@@ -2,7 +2,7 @@
 
 This pattern builded on these two scripts, these are Sequence Manager and UI Manager. These two scripts running independence each other. They use singneleton so you can access any where easily. 
 
-</br><p align="center"><img src="https://github.com/Deaglis1197/Life-Cycle-Asset/blob/main/diagram.png" width="256"/></p>
+</br><p align="center"><img src="https://github.com/Deaglis1197/Life-Cycle-Asset/blob/main/diagram.png" width="755"/></p>
 
 ##Sequence Manager
 <ul>
