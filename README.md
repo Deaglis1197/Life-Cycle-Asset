@@ -4,7 +4,7 @@ This pattern builded on these two scripts, these are Sequence Manager and UI Man
 
 </br><p align="center"><img src="https://github.com/Deaglis1197/Life-Cycle-Asset/blob/main/diagram.png" width="755"/></p>
 
-##Sequence Manager
+## Sequence Manager
 <ul>
 <li>Manage all game state in this script.</li>
 <li>Managing game states with State Machine.</li>
@@ -15,7 +15,7 @@ This pattern builded on these two scripts, these are Sequence Manager and UI Man
 
 Eventually all game circle living on this script. For example, when the game complete, InGame state switch to GameOver state so game is over.
 
-##UI Manager
+## UI Manager
 <ul>
 <li>Manage all UI Canvas in this script.</li>
 <li>All UI Canvas registered on this script with Unity Serializefield.</li>
@@ -23,6 +23,10 @@ Eventually all game circle living on this script. For example, when the game com
 <li>Enable two or more UI Canvas at the same time is allowed.</li>
 <li>Access all canvas through this script.</li>
 <li>All Canvases has OnEnabled and OnDisabled.</li>
-<ul>
+</ul>
 
 UI Manager can work with together Sequence Manager, For example when player wants to open pause menu, game state change to pause, at the same time, InGame Canvas Disable and after that Pause Canvas Enable.
+
+This pattern applied on basic runner game for explain how is working.
+
+
