@@ -15,7 +15,7 @@ namespace _Game.Scripts.Base.Singleton
             {
                 if (s_Instance == null)
                 {
-                    s_Instance = FindObjectOfType<T>();
+                    s_Instance = FindAnyObjectByType<T>();
                     if (s_Instance == null)
                     {
                         GameObject obj = new GameObject();

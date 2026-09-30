@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace _Game.Scripts.Gameplay
 {
@@ -14,6 +15,25 @@ namespace _Game.Scripts.Gameplay
         public bool canControl;
         private Vector3 newPos;
         private Vector3 startPos;
+        private InputAction horizontalAction;
+
+        private void Awake()
+        {
+            horizontalAction = new InputAction("Horizontal", InputActionType.Value);
+            horizontalAction.AddCompositeBinding("1DAxis")
+                .With("Negative", "<Keyboard>/a")
+                .With("Positive", "<Keyboard>/d");
+            horizontalAction.AddCompositeBinding("1DAxis")
+                .With("Negative", "<Keyboard>/leftArrow")
+                .With("Positive", "<Keyboard>/rightArrow");
+            horizontalAction.AddBinding("<Gamepad>/leftStick/x");
+        }
+
+        private void OnEnable() => horizontalAction.Enable();
+
+        private void OnDisable() => horizontalAction.Disable();
+
+        private void OnDestroy() => horizontalAction.Dispose();
 
         private void Start()
         {
@@ -41,7 +61,7 @@ namespace _Game.Scripts.Gameplay
         {
             newPos = transform.position;
             newPos += transform.forward * Time.deltaTime * forwardSpeed;
-            newPos += transform.right * Time.deltaTime * horizantalSpeed * Input.GetAxis("Horizontal");
+            newPos += transform.right * Time.deltaTime * horizantalSpeed * horizontalAction.ReadValue<float>();
             newPos.x = Math.Clamp(newPos.x, -xOffset, xOffset);
             transform.position = newPos;
         }
